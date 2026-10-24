@@ -450,3 +450,22 @@ exports.googleAuth = async (req, res, next) => {
     next(error);
   }
 };
+
+
+/**
+ * @desc    Get all users with judge role (for event assignment)
+ * @route   GET /api/auth/judges
+ * @access  Private
+ */
+exports.getJudges = async (req, res, next) => {
+  try {
+    const judges = await User.find({ role: 'judge' }).select('firstName lastName email college');
+    res.status(200).json({
+      success: true,
+      count: judges.length,
+      data: judges
+    });
+  } catch (error) {
+    next(error);
+  }
+};

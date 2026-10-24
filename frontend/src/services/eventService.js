@@ -1,9 +1,9 @@
 import axios from 'axios';
 
 // Base URL for event service
-const API_URL = 'https://univent-event-service.onrender.com/api/events';
+const API_URL = import.meta.env.VITE_EVENT_API_URL || 'http://localhost:8002/api/events';
 
-// const API_URL = 'http://localhost:8002/api/events';
+
 // Create axios instance with default config
 const eventApi = axios.create({
   baseURL: API_URL,

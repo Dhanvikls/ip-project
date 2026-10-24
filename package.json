@@ -1,0 +1,21 @@
+{
+  "name": "univent-college-event-management-system",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Univent - Real-Time College Event Management System (MERN Stack microservices)",
+  "scripts": {
+    "dev:frontend": "npm --prefix frontend run dev",
+    "dev:gateway": "node backend/gateway/server.js",
+    "dev:auth": "node backend/auth-service/server.js",
+    "dev:event": "node backend/event-service/server.js",
+    "dev:notification": "node backend/notification-service/server.js",
+    "dev:leaderboard": "node backend/leaderboard-service/server.js",
+    "dev:settings": "node backend/settings-service/server.js",
+    "dev:backend": "concurrently -n \"GATEWAY,AUTH,EVENT,NOTIF,LEADER,SETTING\" -c \"magenta,blue,green,yellow,cyan,gray\" \"node backend/gateway/server.js\" \"node backend/auth-service/server.js\" \"node backend/event-service/server.js\" \"node backend/notification-service/server.js\" \"node backend/leaderboard-service/server.js\" \"node backend/settings-service/server.js\"",
+    "dev:all": "concurrently -n \"FRONTEND,GATEWAY,AUTH,EVENT,NOTIF,LEADER,SETTING\" -c \"red,magenta,blue,green,yellow,cyan,gray\" \"npm --prefix frontend run dev\" \"node backend/gateway/server.js\" \"node backend/auth-service/server.js\" \"node backend/event-service/server.js\" \"node backend/notification-service/server.js\" \"node backend/leaderboard-service/server.js\" \"node backend/settings-service/server.js\"",
+    "set-role": "node scripts/set-role.js"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.6"
+  }
+}

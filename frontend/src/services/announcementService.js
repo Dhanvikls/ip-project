@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://univent-notification-service.onrender.com/api/announcements';
+const API_URL = import.meta.env.VITE_ANNOUNCEMENT_API_URL || 'http://localhost:8003/api/announcements';
 
 // Create axios instance
 const announcementAPI = axios.create({

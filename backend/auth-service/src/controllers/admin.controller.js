@@ -55,11 +55,11 @@ exports.updateUserRole = async (req, res, next) => {
     const { role } = req.body;
 
     // Validate role
-    const validRoles = ['participant', 'organizer', 'admin'];
+    const validRoles = ['participant', 'organizer', 'admin', 'judge'];
     if (!validRoles.includes(role)) {
       return res.status(400).json({
         success: false,
-        message: 'Invalid role. Role must be one of: participant, organizer, admin'
+        message: 'Invalid role. Role must be one of: participant, organizer, admin, judge'
       });
     }
 
